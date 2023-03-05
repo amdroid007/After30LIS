@@ -41,6 +41,7 @@ U8GLIB_SH1106_128X64  My_u8g_Panel(U8G_I2C_OPT_NONE); // I2C / TWI
 #define hitSound 440
 #define wallSound 247
 #define missSound 147
+#define DBOUNCE 100
 
 // Game states
 #define gameReady 3
@@ -109,12 +110,17 @@ void updateEncoder() {
  * Interrupt handler for button
  **/
 void StartStopGame () {
-  if (gameStatus == gameReady) { // Ready state - showing welcome
-    gameStatus = gameStart;
-    resetGame();
+  static unsigned long last_interrupt = 0;
+  if (millis() - last_interrupt > DBOUNCE) {
+    if (gameStatus == gameReady) { // Ready state - showing welcome
+      resetGame();
+      ShowScore();
+      gameStatus = gameStart;
+    }
+    else if (gameStatus== gameStart) gameStatus= gamePlaying;
+    else if (gameStatus==gameEnd) gameStatus=gameReady;
   }
-  else if (gameStatus== gameStart) gameStatus= gamePlaying;
-  else if (gameStatus==gameEnd) gameStatus=gameReady;
+  last_interrupt = millis(); //note the last time the ISR was called  
 }
 
 /**
@@ -263,4 +269,3 @@ void u8g_bricks() {
 void u8g_ball() {
   My_u8g_Panel.drawDisc(ball_x, ball_y, balldia);
 }
-
