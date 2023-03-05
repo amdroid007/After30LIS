@@ -10,4 +10,5 @@ Here are the games/projects we have so far:
 * Dino - when the Internet is down, the Dino rules the (no)net world! Here is the After30LIS version of Dino! Simulation at https://wokwi.com/projects/346178932556431954
 * Snake - a simple implementation of the beloved Snake game - to extend gameplay and to keep it simple, he can go through walls and only dies if he runs into himself. See how many stars you can grab! Simulation at https://wokwi.com/projects/351054921266627159
 * Flappybird - an implementation of the popular and extremely frustrating game Flappy - make the little flappy bird flap its way through the pipes - can you make it through 1? Secret - if you have difficulties tapping through, use the encoder knob to make him fly up and down for a much easier gameplay! Simulation at https://wokwi.com/projects/354155106488505345
+* Bricks - a simple implementation of a single level bricks game - no frills, simple game physics - see how long it takes you to knock out 40 bricks using your 3 lives. Life remaining and score shown on 7seg. Move paddle using the encoder knob. Simulation at https://wokwi.com/projects/357959955128944641
 * More to come...
